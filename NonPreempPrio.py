@@ -1,5 +1,2 @@
-def Algo():
+def Algo(processList, priorityList, burstList, arrivalList, process, choice):
     print("Non-preemptive priority: placeholder implementation")
-
-def Algo():
-    print("aaaa")
