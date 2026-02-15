@@ -5,71 +5,44 @@ import ShortestJob
 
 
 def menu():
+    choice = ""
     while True:
         print("Please input what Algorithm You want to use: \n [1] Round-Robin Algorithm \n [2] Non-Preemptive Priority Algorithm \n [3] Preemptive Priority Algorithm \n [4] Shortest Job First Algorithm \n [0] Exit")
         choice = input("Enter your choice: ")
-        if choice == '1':
-            print("You have selected Round-Robin Algorithm")
-            process = int(input("Enter the number of processes: "))
-            quantum = int(input("Enter the time quantum: "))
-            processList = [0] * process
-            priorityList = [0] * process
-            burstList = [0] * process
-            arrivalList = [0] * process
-            takingInput(processList, priorityList, burstList, arrivalList, process, choice)
-            RoundRobin.Algo(processList, priorityList, burstList, arrivalList, process, choice, quantum)
-            break
-        elif choice == '2':
-            print("You have selected Non-Preemptive Priority Algorithm")
-            process = int(input("Enter the number of processes: "))
-            processList = [0] * process
-            priorityList = [0] * process
-            burstList = [0] * process
-            arrivalList = [0] * process
-            takingInput(processList, priorityList, burstList, arrivalList, process, choice)
-            NonPreempPrio.Algo(processList, priorityList, burstList, arrivalList, process, choice)
-            break
-        elif choice == '3':
-            print("You have selected Preemptive Priority Algorithm")
-            process = int(input("Enter the number of processes: "))
-            processList = [0] * process
-            priorityList = [0] * process
-            burstList = [0] * process
-            arrivalList = [0] * process
-            takingInput(processList, priorityList, burstList, arrivalList, process, choice)
-            PreempPrio.Algo(processList, priorityList, burstList, arrivalList, process, choice)
-            break
-        elif choice == '4':
-            print("You have selected Shortest Job First Algorithm")
-            process = int(input("Enter the number of processes: "))
-            processList = [0] * process
-            priorityList = [0] * process
-            burstList = [0] * process
-            arrivalList = [0] * process
-            takingInput(processList, priorityList, burstList, arrivalList, process, choice)
-            ShortestJob.Algo(processList, priorityList, burstList, arrivalList, process, choice)
-            break
-        elif choice == '0':
+        if choice == "0":
             print("Exiting the program.")
             break
-        else:
+        process = int(input("Enter the number of processes: "))
+        processList = [0] * process
+        priorityList = [0] * process
+        burstList = [0] * process
+        arrivalList = [0] * process
+        takingInput(processList, priorityList, burstList, arrivalList, process)
+        if "1" in choice:
+            print("\nYou have selected Round-Robin Algorithm")
+            quantum = int(input("Enter the time quantum: "))
+            RoundRobin.Algo(processList, priorityList, burstList, arrivalList, process, quantum)
+        if "2" in choice:
+            print("\nYou have selected Non-Preemptive Priority Algorithm")
+            NonPreempPrio.Algo(processList, priorityList, burstList, arrivalList, process)
+        if "3" in choice:
+            print("\nYou have selected Preemptive Priority Algorithm")
+            PreempPrio.Algo(processList, priorityList, burstList, arrivalList, process)
+        if "4" in choice:
+            print("\nYou have selected Shortest Job First Algorithm")
+            ShortestJob.Algo(processList, priorityList, burstList, arrivalList, process)
+        if choice not in ['1', '2', '3', '4']:
             print("Invalid choice. Please try again.")
 
 
 
-def takingInput(processList, priorityList, burstList, arrivalList, process, choice):
-    if choice == '1' or choice == '4':
-        for i in range(process):
-            processList[i] = f"P{i+1}"
-            arrivalList[i]  = int(input(f"Arrival time for {processList[i]}: "))
-            burstList[i]    = int(input(f"Burst time for {processList[i]}: "))
-    else:
+def takingInput(processList, priorityList, burstList, arrivalList, process):
         print("Enter details for each process (Lower number = higher priority):")
         for i in range(process):
             processList[i] = f"P{i+1}"
-            priorityList[i] = int(input(f"Priority for {processList[i]}: "))
             arrivalList[i]  = int(input(f"Arrival time for {processList[i]}: "))
             burstList[i]    = int(input(f"Burst time for {processList[i]}: "))
+            priorityList[i] = int(input(f"Priority for {processList[i]} (Enter 0 if not applicable):  "))
 
 
 

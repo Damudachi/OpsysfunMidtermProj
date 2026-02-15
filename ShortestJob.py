@@ -1,9 +1,8 @@
-def Algo(processList, priorityList, burstList, arrivalList, process, choice, quantum=None):
+def Algo(processList, priorityList, burstList, arrivalList, process):
 
     completed = 0
     current_time = 0
     visited = [False] * process
-
     waitingTime = [0] * process
     turnaroundTime = [0] * process
     completionTime = [0] * process
