@@ -34,6 +34,7 @@ def menu():
             processList = [0] * process
             priorityList = [0] * process
             burstList = [0] * process
+            arrivalList = [0] * process
             quantum = 0
             takingInput(processList, priorityList, burstList, arrivalList, process, choice)
             PreempPrio.Algo(processList, priorityList, burstList, arrivalList, process, choice)
@@ -44,6 +45,7 @@ def menu():
             processList = [0] * process
             priorityList = [0] * process
             burstList = [0] * process
+            arrivalList = [0] * process
             takingInput(processList, priorityList, burstList, arrivalList, process, choice)
             ShortestJob.Algo(processList, priorityList, burstList, arrivalList, process, choice)
             break
@@ -70,24 +72,11 @@ def takingInput(processList, priorityList, burstList, arrivalList, process, choi
             burstList[i]    = int(input(f"Burst time for {processList[i]}: "))
 
 
-
-
-
 if __name__ == "__main__":
-    while True:
-        try:
-            menu()
-        except Exception as e:
-            print(f"An error occurred: {e}")
-
-
-
-
-
-
-
-
-
+    try:
+        menu()
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 
 

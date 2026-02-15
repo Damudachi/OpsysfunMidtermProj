@@ -38,7 +38,7 @@ def Algo(processList, priorityList, burstList, arrivalList, process, choice, qua
     totalWT = sum(waitingTime)
     totalTAT = sum(turnaroundTime)
 
-    print("Process\tAT\tBT\tET\tWT\tTAT")
+    print("Process\tAT\tBT\tET\tTAT\tWT")
     for i in range(process):
         print(f"{processList[i]}\t{arrivalList[i]}\t{burstList[i]}"
               f"\t{completionTime[i]}\t{turnaroundTime[i]}\t{waitingTime[i]}")
