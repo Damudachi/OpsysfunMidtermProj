@@ -7,7 +7,7 @@ import ShortestJob
 def menu():
     choice = ""
     while True:
-        print("Please input what Algorithm You want to use: \n [1] Round-Robin Algorithm \n [2] Non-Preemptive Priority Algorithm \n [3] Preemptive Priority Algorithm \n [4] Shortest Job First Algorithm \n [0] Exit")
+        print("\nPlease input what Algorithm You want to use: \n [1] Round-Robin Algorithm \n [2] Non-Preemptive Priority Algorithm \n [3] Preemptive Priority Algorithm \n [4] Shortest Job First Algorithm \n [0] Exit")
         choice = input("Enter your choice: ")
         if choice == "0":
             print("Exiting the program.")
@@ -50,6 +50,7 @@ def takingInput(processList, priorityList, burstList, arrivalList, process):
 
 if __name__ == "__main__":
     try:
+        print("Welcome to the CPU Scheduling Simulator!")
         menu()
     except Exception as e:
         print("An error occurred:", e)
