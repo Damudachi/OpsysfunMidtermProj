@@ -49,8 +49,10 @@ def takingInput(processList, priorityList, burstList, arrivalList, process):
 
 
 if __name__ == "__main__":
+    try:
         menu()
-    
+    except Exception as e:
+        print("An error occurred:", e)
 
 
 
